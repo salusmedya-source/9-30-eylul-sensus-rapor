@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9-30 Eylül Sensus Wine Food Meta Reklam Raporu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* A4 Page Styling */
+        body {
+            background-color: #4a1c24; /* Bordo arka plan */
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+
+        .a4-page {
+            width: 210mm;
+            min-height: 297mm;
+            background-color: white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            margin: 0 auto;
+            padding: 15mm 20mm; /* A4 sayfa içi boşlukları optimum seviyeye çekildi */
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        /* Print Specific Styles */
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            .a4-page {
+                box-shadow: none;
+                margin: 0;
+                width: 100%;
+                min-height: 100vh;
+                page-break-after: always;
+            }
+            /* Hide print button when printing */
+            .no-print {
+                display: none !important;
+            }
+        }
+
+        /* Custom Colors */
+        .bg-header-burgundy {
+            background-color: #722F37; /* Şarap bordosu */
+        }
+        .text-burgundy {
+            color: #722F37;
+        }
+        .border-burgundy {
+            border-color: #722F37;
+        }
+        .bg-total-yellow {
+            background-color: #ffd600; /* Toplam satırı sarısı */
+        }
+        
+        /* Fixed table layout to prevent overflow / tam görünmeme sorununu çözer */
+        .report-table {
+            table-layout: fixed;
+            width: 100%;
+            word-wrap: break-word;
+        }
+    </style>
+    <!-- Adding Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Adding FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="text-gray-800">
+
+    <div class="a4-page flex flex-col">
+        <!-- Print Button (Hidden on print) -->
+        <div class="absolute top-4 right-4 no-print z-10">
+            <button onclick="window.print()" class="bg-header-burgundy hover:bg-[#4a1c24] text-white font-semibold py-2 px-4 rounded shadow transition duration-200 flex items-center gap-2 text-sm">
+                <i class="fas fa-print"></i> Yazdır / PDF Kaydet
+            </button>
+        </div>
+
+        <!-- Logo Placeholder (Sizin logonuz için alan) -->
+        <div class="flex items-center justify-center">
+    <img src="./images/salus-logo.png" alt="Salus Medya Logo" class="h-28 object-contain">
+</div>
+
+        <!-- Header Section -->
+        <header class="border-b-4 border-burgundy pb-4 mb-6 text-center">
+            <h1 class="text-3xl font-bold text-burgundy mb-1 uppercase tracking-wide">
+                <i class="fas fa-wine-glass-alt mr-2"></i> SENSUS WINE FOOD
+            </h1>
+            <h2 class="text-lg font-semibold text-gray-600 uppercase">Meta Reklam Raporu</h2>
+            <p class="text-gray-500 mt-1 font-medium text-sm">
+                <i class="far fa-calendar-alt mr-1"></i> 09 – 30 Eylül 2026
+            </p>
+        </header>
+
+        <!-- Executive Summary Section -->
+        <section class="mb-6 flex-grow">
+            <div class="bg-red-50 border-l-4 border-burgundy p-3 mb-5 rounded-r-lg">
+                <p class="text-[15px] text-burgundy font-medium flex items-start gap-3 m-0">
+                    <i class="fas fa-sparkles mt-1"></i>
+                    <span>Eylül ayında yürütülen reklam çalışmalarımızla toplam <strong>25.901 kişiye</strong> ulaşıldı ve <strong>98.641 gösterim</strong> elde edildi.</span>
+                </p>
+            </div>
+
+            <!-- Key Metrics Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
+                <!-- Harcama -->
+                <div class="bg-white border border-gray-200 p-3 rounded-xl shadow-sm text-center flex flex-col items-center justify-center">
+                    <div class="w-10 h-10 bg-red-100 text-burgundy rounded-full flex items-center justify-center mb-2">
+                        <i class="fas fa-lira-sign text-lg"></i>
+                    </div>
+                    <p class="text-[10px] text-gray-500 font-semibold uppercase tracking-wider mb-1">Toplam Harcama</p>
+                    <p class="text-sm font-bold text-gray-800">26.403,31 TL</p>
+                </div>
+                <!-- Erişim -->
+                <div class="bg-white border border-gray-200 p-3 rounded-xl shadow-sm text-center flex flex-col items-center justify-center">
+                    <div class="w-10 h-10 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mb-2">
+                        <i class="fas fa-users text-lg"></i>
+                    </div>
+                    <p class="text-[10px] text-gray-500 font-semibold uppercase tracking-wider mb-1">Erişim</p>
+                    <p class="text-sm font-bold text-gray-800">25.901</p>
+                </div>
+                <!-- Gösterim -->
+                <div class="bg-white border border-gray-200 p-3 rounded-xl shadow-sm text-center flex flex-col items-center justify-center">
+                    <div class="w-10 h-10 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center mb-2">
+                        <i class="far fa-eye text-lg"></i>
+                    </div>
+                    <p class="text-[10px] text-gray-500 font-semibold uppercase tracking-wider mb-1">Gösterim</p>
+                    <p class="text-sm font-bold text-gray-800">98.641</p>
+                </div>
+                <!-- Mesaj -->
+                <div class="bg-white border border-gray-200 p-3 rounded-xl shadow-sm text-center flex flex-col items-center justify-center">
+                    <div class="w-10 h-10 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center mb-2">
+                        <i class="far fa-comment-dots text-lg"></i>
+                    </div>
+                    <p class="text-[10px] text-gray-500 font-semibold uppercase tracking-wider mb-1">Toplam Mesaj</p>
+                    <p class="text-sm font-bold text-gray-800">315</p>
+                </div>
+                <!-- Takipçi -->
+                <div class="bg-white border border-gray-200 p-3 rounded-xl shadow-sm text-center flex flex-col items-center justify-center">
+                    <div class="w-10 h-10 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mb-2">
+                        <i class="fab fa-instagram text-lg"></i>
+                    </div>
+                    <p class="text-[10px] text-gray-500 font-semibold uppercase tracking-wider mb-1">Yeni Takipçi</p>
+                    <p class="text-sm font-bold text-gray-800">108</p>
+                </div>
+            </div>
+
+            <!-- Graphical Charts Section -->
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <!-- Pie Chart: Harcama -->
+                <div class="bg-white border border-gray-200 p-3 rounded-xl shadow-sm">
+                    <h3 class="text-xs font-bold text-burgundy text-center mb-2">Bütçe Dağılımı</h3>
+                    <div class="relative h-40 w-full flex justify-center">
+                        <canvas id="budgetChart"></canvas>
+                    </div>
+                </div>
+                <!-- Bar Chart: Etkileşim -->
+                <div class="bg-white border border-gray-200 p-3 rounded-xl shadow-sm">
+                    <h3 class="text-xs font-bold text-burgundy text-center mb-2">Görünürlük Performansı</h3>
+                    <div class="relative h-40 w-full flex justify-center">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conclusion Points -->
+            <ul class="space-y-2 text-gray-700 bg-gray-50 p-4 rounded-xl border border-gray-100 text-[13px]">
+                <li class="flex items-start">
+                    <i class="fas fa-thumbtack text-burgundy mt-1 mr-2"></i>
+                    <p>Reklam çalışmaları sonucunda <strong>315 mesaj</strong> ile önemli bir iletişim trafiği oluşturulmuş, müşteri potansiyeli artırılmıştır.</p>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-thumbtack text-burgundy mt-1 mr-2"></i>
+                    <p>Kampanya süresince Instagram hesabına <strong>108 yeni takipçi</strong> kazandırılarak organik büyüme desteklenmiştir.</p>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-star text-yellow-600 mt-1 mr-2"></i>
+                    <p>Genel değerlendirmede marka görünürlüğü istikrarlı şekilde artırılmış, etkileşim ve hesap büyümesi başarıyla sağlanmıştır.</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Detailed Table Section -->
+        <section class="mt-auto">
+            <h3 class="text-base font-bold text-burgundy mb-2 border-b border-burgundy pb-1"><i class="fas fa-table mr-2"></i> Detaylı Kampanya Verileri</h3>
+            
+            <div class="w-full">
+                <table class="report-table border-collapse border border-gray-800 text-[11px]">
+                    <colgroup>
+                        <col style="width: 25%;">
+                        <col style="width: 12%;">
+                        <col style="width: 11%;">
+                        <col style="width: 12%;">
+                        <col style="width: 10%;">
+                        <col style="width: 10%;">
+                        <col style="width: 10%;">
+                        <col style="width: 10%;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th colspan="8" class="bg-header-burgundy text-white py-2 px-1 text-center text-xs font-bold uppercase tracking-wide border border-gray-800">
+                                SENSUS WİNE FOOD 09-30 EYLÜL 2026 REKLAM RAPORU
+                            </th>
+                        </tr>
+                        <tr class="bg-gray-100">
+                            <th class="border border-gray-800 py-1.5 px-1 text-center font-bold text-gray-800">Kampanya Adı</th>
+                            <th class="border border-gray-800 py-1.5 px-1 text-center font-bold text-gray-800">Harcanan Tutar</th>
+                            <th class="border border-gray-800 py-1.5 px-1 text-center font-bold text-gray-800">Erişim</th>
+                            <th class="border border-gray-800 py-1.5 px-1 text-center font-bold text-gray-800">Gösterim</th>
+                            <th class="border border-gray-800 py-1.5 px-1 text-center font-bold text-gray-800">Mesaj</th>
+                            <th class="border border-gray-800 py-1.5 px-1 text-center font-bold text-gray-800">Takipçi</th>
+                            <th class="border border-gray-800 py-1.5 px-1 text-center font-bold text-gray-800">Başlangıç</th>
+                            <th class="border border-gray-800 py-1.5 px-1 text-center font-bold text-gray-800">Bitiş</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700">
+                        <tr>
+                            <td class="border border-gray-800 py-1.5 px-2 text-left font-medium">Sensus Wine Food 09-30 Eylül</td>
+                            <td class="border border-gray-800 py-1.5 px-1 text-center">21.122,65</td>
+                            <td class="border border-gray-800 py-1.5 px-1 text-center">25.901</td>
+                            <td class="border border-gray-800 py-1.5 px-1 text-center">98.641</td>
+                            <td class="border border-gray-800 py-1.5 px-1 text-center">315</td>
+                            <td class="border border-gray-800 py-1.5 px-1 text-center">108</td>
+                            <td class="border border-gray-800 py-1.5 px-1 text-center">9/9/26</td>
+                            <td class="border border-gray-800 py-1.5 px-1 text-center">30/9/26</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-800 py-1.5 px-2 text-left text-[10px]">Meta Türkiye Ve Konum Vergisi</td>
+                            <td class="border border-gray-800 py-1.5 px-1 text-center">5.280,66</td>
+                            <td class="border border-gray-800 py-1.5 px-1 text-center"></td>
+                            <td class="border border-gray-800 py-1.5 px-1 text-center"></td>
+                            <td class="border border-gray-800 py-1.5 px-1 text-center"></td>
+                            <td class="border border-gray-800 py-1.5 px-1 text-center"></td>
+                            <td class="border border-gray-800 py-1.5 px-1 text-center"></td>
+                            <td class="border border-gray-800 py-1.5 px-1 text-center"></td>
+                        </tr>
+                        <tr class="bg-total-yellow text-black font-bold">
+                            <td class="border border-gray-800 py-2 px-2 text-center">GENEL TOPLAM</td>
+                            <td class="border border-gray-800 py-2 px-1 text-center">26.403,31</td>
+                            <td class="border border-gray-800 py-2 px-1 text-center">25.901</td>
+                            <td class="border border-gray-800 py-2 px-1 text-center">98.641</td>
+                            <td class="border border-gray-800 py-2 px-1 text-center">315</td>
+                            <td class="border border-gray-800 py-2 px-1 text-center">108</td>
+                            <td class="border border-gray-800 py-2 px-1 text-center"></td>
+                            <td class="border border-gray-800 py-2 px-1 text-center"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="flex justify-between items-end mt-4 text-xs font-medium">
+                <div class="text-gray-400">
+                    <p>Rapor Tarihi: 01 Ekim 2026</p>
+                </div>
+                <div class="text-right flex flex-col items-end">
+                    <p class="text-gray-500 mb-1 text-[10px] uppercase">Hazırlayan</p>
+                    <img src="./images/salus-logo.png" alt="Salus Medya Logo" class="h-28 object-contain">
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Budget Doughnut Chart
+            const ctxBudget = document.getElementById('budgetChart').getContext('2d');
+            new Chart(ctxBudget, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Reklam Harcaması', 'Vergi'],
+                    datasets: [{
+                        data: [21122.65, 5280.66],
+                        backgroundColor: ['#722F37', '#cbd5e1'],
+                        borderWidth: 0,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '65%',
+                    plugins: {
+                        legend: { 
+                            position: 'bottom', 
+                            labels: { boxWidth: 10, font: {size: 10, family: 'Inter'} } 
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let value = context.raw || 0;
+                                    return ' ' + value.toLocaleString('tr-TR') + ' TL';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Performance Bar Chart
+            const ctxPerf = document.getElementById('performanceChart').getContext('2d');
+            new Chart(ctxPerf, {
+                type: 'bar',
+                data: {
+                    labels: ['Erişim', 'Gösterim'],
+                    datasets: [{
+                        label: 'Kişi / Sayı',
+                        data: [25901, 98641],
+                        backgroundColor: ['#f59e0b', '#722F37'],
+                        borderRadius: 4,
+                        barThickness: 30
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let value = context.raw || 0;
+                                    return ' ' + value.toLocaleString('tr-TR');
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: { 
+                            beginAtZero: true, 
+                            ticks: { 
+                                font: {size: 9, family: 'Inter'},
+                                callback: function(value) {
+                                    return value >= 1000 ? (value/1000) + 'k' : value;
+                                }
+                            },
+                            grid: { color: '#f1f5f9' }
+                        },
+                        x: { 
+                            ticks: { font: {size: 10, family: 'Inter'} },
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
